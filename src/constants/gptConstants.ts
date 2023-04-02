@@ -15,8 +15,8 @@ export const API_ERROR = {
   },
   UNKNOWN: {
     STATUS: 500,
-    CODE: 'unavailable',
-    MESSAGE: '일시적으로 이용할 수 없습니다.',
+    CODE: 'unknown',
+    MESSAGE: '알 수 없는 오류입니다.',
   },
 };
 
