@@ -1,0 +1,13 @@
+.spinner {
+  animation: spinner 0.8s infinite linear;
+  width: 16px;
+
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
