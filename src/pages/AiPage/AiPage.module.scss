@@ -1,9 +1,11 @@
 /* sections */
-.titleSection {
-  margin-bottom: 40px;
+.header {
+  margin-bottom: 34px;
 }
-.inputSection {
+.body {
   margin-bottom: 20px;
+}
+.footer {
 }
 
 /* elements */
@@ -14,10 +16,10 @@
   color: var(--netural11);
   text-align: center;
 }
-.subTitle {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
-  color: var(--netural7);
-  text-align: center;
+.selects {
+  display: flex;
+  gap: 14px;
+}
+.select {
+  margin-bottom: 14px;
 }
