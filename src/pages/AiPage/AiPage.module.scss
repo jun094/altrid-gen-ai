@@ -16,10 +16,19 @@
   color: var(--netural11);
   text-align: center;
 }
+.forms {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
 .selects {
   display: flex;
   gap: 14px;
 }
-.select {
-  margin-bottom: 14px;
+.words {
+  color: var(--netural7);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 }

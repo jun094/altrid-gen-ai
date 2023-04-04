@@ -10,12 +10,13 @@ import Select from 'components/Select';
 
 function AiPage() {
   const [value, setValue] = useState<string | undefined>(undefined);
-  const [disabled, setDisabled] = useState<boolean>(true);
+  const [wordsNum, setWordsNum] = useState<number>(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
 
     setValue(value);
+    setWordsNum(value.length);
   };
   return (
     <>
@@ -26,17 +27,20 @@ function AiPage() {
         </section>
 
         <section className={styles.body}>
-          <div className={styles.selects}>
-            <Select label="purpose" list={['list1', 'list2', 'list3']} className={styles.select} />
-            <Select label="style" list={['list1', 'list2', 'list3']} className={styles.select} />
-            <Select label="tone" list={['list1', 'list2', 'list3']} className={styles.select} />
+          <div className={styles.forms}>
+            <div className={styles.selects}>
+              <Select label="purpose" list={['list1', 'list2', 'list3']} />
+              <Select label="style" list={['list1', 'list2', 'list3']} />
+              <Select label="tone" list={['list1', 'list2', 'list3']} />
+            </div>
+            <p className={styles.words}>{wordsNum} / 10,000</p>
           </div>
 
           <Textarea value={value} onChange={handleChange} />
         </section>
 
         <section className={styles.footer}>
-          <Button disabled={disabled}>SUBMIT</Button>
+          <Button disabled={wordsNum === 0}>SUBMIT</Button>
         </section>
       </PageWrapper>
     </>
