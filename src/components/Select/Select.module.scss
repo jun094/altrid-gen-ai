@@ -13,12 +13,17 @@
 .dropdownButton {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 24px;
   height: 37px;
   padding: 0 16px;
   background: var(--white);
+  color: var(--textColor);
   border: 1px solid rgba(var(--blackRGB), 0.1);
   border-radius: 8px;
+
+  &:hover {
+    background: var(--gray);
+  }
 }
 .dropdownMenu {
   display: flex;
@@ -40,8 +45,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  & {
-  }
 }
 .menuList {
   padding: 4px 16px;
@@ -50,4 +53,8 @@
   &:hover {
     background: var(--gray);
   }
+}
+
+.arrowIcon {
+  color: var(--netural7);
 }

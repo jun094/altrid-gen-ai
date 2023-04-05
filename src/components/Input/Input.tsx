@@ -25,6 +25,7 @@ const Input = (
   const handleSendButton = () => {
     console.log('click!');
   };
+  
   return (
     <span className={styles.container}>
       <input

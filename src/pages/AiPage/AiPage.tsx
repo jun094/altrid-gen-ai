@@ -12,17 +12,34 @@ import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 import styles from './AiPage.module.scss';
 import { ROUTE_LIST } from 'constants/common';
 
+type optionType = 'purpose' | 'style' | 'tone';
+
 function AiPage() {
   const navigate = useNavigate();
-  const [value, setValue] = useState<string | undefined>(undefined);
+  const [textareaValue, setTextareaValue] = useState<string | undefined>(undefined);
   const [wordsNum, setWordsNum] = useState<number>(0);
+  const [selectValues, setSelectValues] = useState({
+    purpose: '',
+    style: '',
+    tone: '',
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
 
-    setValue(value);
+    setTextareaValue(value);
     setWordsNum(value.length);
   };
+  const handleSelect = (e: React.MouseEvent<HTMLLIElement>) => {
+    const { dataset } = e.target as HTMLElement;
+    const { id, label = '' } = dataset;
+
+    setSelectValues({
+      ...selectValues,
+      [label]: id,
+    });
+  };
+
   return (
     <>
       <Navigation />
@@ -34,14 +51,29 @@ function AiPage() {
         <section className={styles.body}>
           <div className={styles.forms}>
             <div className={styles.selects}>
-              <Select label="purpose" list={['list1', 'list2', 'list3']} />
-              <Select label="style" list={['list1', 'list2', 'list3']} />
-              <Select label="tone" list={['list1', 'list2', 'list3']} />
+              <Select
+                value={selectValues.purpose}
+                label="purpose"
+                list={['list1', 'list2', 'list3']}
+                onClick={handleSelect}
+              />
+              <Select
+                value={selectValues.style}
+                label="style"
+                list={['list1', 'list2', 'list3']}
+                onClick={handleSelect}
+              />
+              <Select
+                value={selectValues.tone}
+                label="tone"
+                list={['list1', 'list2', 'list3']}
+                onClick={handleSelect}
+              />
             </div>
             <p className={styles.words}>{wordsNum} / 10,000</p>
           </div>
 
-          <Textarea value={value} onChange={handleChange} />
+          <Textarea value={textareaValue} onChange={handleChange} />
         </section>
 
         <section className={styles.footer}>
