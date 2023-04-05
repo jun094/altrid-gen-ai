@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
@@ -9,8 +10,10 @@ import Select from 'components/Select';
 import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 
 import styles from './AiPage.module.scss';
+import { ROUTE_LIST } from 'constants/common';
 
 function AiPage() {
+  const navigate = useNavigate();
   const [value, setValue] = useState<string | undefined>(undefined);
   const [wordsNum, setWordsNum] = useState<number>(0);
 
@@ -42,7 +45,7 @@ function AiPage() {
         </section>
 
         <section className={styles.footer}>
-          <Button disabled={wordsNum === 0} icon={SendIcon}>
+          <Button disabled={wordsNum === 0} icon={SendIcon} onClick={() => navigate(ROUTE_LIST.coach)}>
             SUBMIT
           </Button>
         </section>
