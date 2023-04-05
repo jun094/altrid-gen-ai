@@ -1,5 +1,5 @@
 export const ROUTE_LIST = {
-  home: '/home',
-  ai: '/ai',
+  ai: '/',
+  coach: '/coach',
   error: '/error',
 };

@@ -16,4 +16,8 @@
   &::placeholder {
     opacity: 0.4;
   }
+  &:disabled {
+    opacity: 0.6;
+    background-color: var(--gray);
+  }
 }

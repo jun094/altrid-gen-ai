@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
 import Textarea from 'components/Textarea';
-
-import styles from './AiPage.module.scss';
 import Button from 'components/Button';
 import Select from 'components/Select';
+
+import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
+
+import styles from './AiPage.module.scss';
 
 function AiPage() {
   const [value, setValue] = useState<string | undefined>(undefined);
@@ -40,7 +42,9 @@ function AiPage() {
         </section>
 
         <section className={styles.footer}>
-          <Button disabled={wordsNum === 0}>SUBMIT</Button>
+          <Button disabled={wordsNum === 0} icon={SendIcon}>
+            SUBMIT
+          </Button>
         </section>
       </PageWrapper>
     </>

@@ -1,0 +1,15 @@
+/* sections */
+.container {
+  flex-direction: row;
+  gap: 26px;
+
+  & section {
+    width: 100%;
+  }
+}
+.submittedTextarea {
+}
+
+/* elements */
+.editingTextarea {
+}
