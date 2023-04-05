@@ -7,13 +7,15 @@ import { ReactComponent as ArrowIcon } from 'styles/assets/arrow.svg';
 import styles from './Select.module.scss';
 
 type SelectProps = {
-  className?: string;
+  value: string;
   label: string;
   list: string[];
+  className?: string;
+  onClick: any;
 };
 
-const Select = ({ className, label, list }: SelectProps) => {
-  const [selected, setSelected] = useState<string>(list[0]);
+const Select = ({ value, className, label, list, onClick }: SelectProps) => {
+  const selected = value || list[0];
 
   return (
     <div className={cn(styles.container, className)}>
@@ -21,11 +23,17 @@ const Select = ({ className, label, list }: SelectProps) => {
       <Dropdown posY={45}>
         <Dropdown.Button className={styles.dropdownButton}>
           <p className={styles.item}>{selected}</p>
-          <ArrowIcon />
+          <ArrowIcon className={styles.arrowIcon} />
         </Dropdown.Button>
         <Dropdown.Menu className={styles.dropdownMenu}>
           {list.map(item => (
-            <li key={item} className={cn(styles.item, styles.menuList)} onClick={() => setSelected(item)}>
+            <li
+              data-label={label}
+              data-id={item}
+              key={item}
+              className={cn(styles.item, styles.menuList)}
+              onClick={onClick}
+            >
               {item}
             </li>
           ))}
