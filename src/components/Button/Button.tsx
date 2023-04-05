@@ -3,10 +3,12 @@ import cn from 'classnames';
 
 import styles from './Button.module.scss';
 
-export type ButtonColorType = 'primary' | undefined;
+export type ButtonStyleType = 'primary' | 'outline' | undefined;
+export type ButtonSizeType = 'md' | 'lg';
 
 export type ButtonProps = {
-  color?: ButtonColorType;
+  style?: ButtonStyleType;
+  size?: ButtonSizeType;
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
@@ -16,7 +18,8 @@ export type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
-  color = 'primary',
+  style = 'primary',
+  size = 'lg',
   className,
   disabled = false,
   isLoading = false,
@@ -26,7 +29,11 @@ const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <button className={cn(styles.button, styles[color], className)} disabled={disabled || isLoading} {...rest}>
+    <button
+      className={cn(styles.container, styles[style], styles[size], className)}
+      disabled={disabled || isLoading}
+      {...rest}
+    >
       {isLoading ? (
         <Spinner />
       ) : (
