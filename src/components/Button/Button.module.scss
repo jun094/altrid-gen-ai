@@ -1,13 +1,11 @@
 .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   height: 48px;
-  width: 100%;
+  min-width: 160px;
+  padding: 0 28px;
   border-radius: 40px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease;
   white-space: nowrap;
   user-select: none;
 
@@ -25,4 +23,12 @@
   color: var(--white);
   background: linear-gradient(88.37deg, var(--primary) -3.68%, var(--primaryLight) 103.37%);
   box-shadow: 0px 6px 23px var(--primaryShadow);
+}
+
+.wrapper {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }

@@ -10,6 +10,7 @@ export type ButtonProps = {
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   children: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -19,12 +20,21 @@ const Button = ({
   className,
   disabled = false,
   isLoading = false,
+  icon: Icon,
   children,
+
   ...rest
 }: ButtonProps) => {
   return (
     <button className={cn(styles.button, styles[color], className)} disabled={disabled || isLoading} {...rest}>
-      {isLoading ? <Spinner /> : children}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className={styles.wrapper}>
+          {Icon && <Icon />}
+          {children}
+        </div>
+      )}
     </button>
   );
 };
