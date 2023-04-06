@@ -12,8 +12,6 @@ import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 import styles from './AiPage.module.scss';
 import { ROUTE_LIST } from 'constants/common';
 
-type optionType = 'purpose' | 'style' | 'tone';
-
 function AiPage() {
   const navigate = useNavigate();
   const [textareaValue, setTextareaValue] = useState<string | undefined>(undefined);

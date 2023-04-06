@@ -60,6 +60,7 @@ a {
   outline: none;
 }
 :root {
+  /* color */
   --primary: #8142ef;
   --primaryKey: #9d55f1;
   --primaryLight: #b566f2;
@@ -76,6 +77,7 @@ a {
 
   --gray: #f5f5f5;
   --darkGray: #cdcdcd;
+  --lightGray: #fbfbfb;
 
   --primaryRGB: 129, 66, 239;
   --primaryKeyRGB: 157, 85, 241;
@@ -87,4 +89,7 @@ a {
 
   --netural11RGB: 31, 31, 31;
   --netural7RGB: 140, 140, 140;
+
+  /* size */
+  --nav-height: 60px;
 }
