@@ -1,0 +1,35 @@
+/* sections */
+.container {
+}
+.textareaSection {
+  display: flex;
+  gap: 26px;
+  margin-bottom: 32px;
+}
+
+.footer {
+  text-align: center;
+}
+
+/* elements */
+.textarea {
+  width: 100%;
+}
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 5px 12px;
+}
+.editedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.editedTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  padding-left: 12px;
+}
