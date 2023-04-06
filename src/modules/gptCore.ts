@@ -33,7 +33,7 @@ const coreModule = async ({ messageStream }: openAIMessage) =>
 const checkMyWriting = async ({
   text = '',
   previousStream = [],
-  options = { writingPurpose: 'default', writingStyle: 'default', writingTone: 'default' },
+  options = { writingPurpose: 'Academic', writingStyle: 'General', writingTone: 'General' },
 }: checkMyWritingType) => {
   if (!text.trim() || text.trim().length > API_SPEC.TEXT_LIMIT) {
     throw new CustomError({
