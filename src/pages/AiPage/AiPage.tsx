@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
 
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
@@ -8,14 +9,18 @@ import Button from 'components/Button';
 import Select from 'components/Select';
 
 import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
+import { ReactComponent as ErrorIcon } from 'styles/assets/error.svg';
 
 import styles from './AiPage.module.scss';
 import { ROUTE_LIST } from 'constants/common';
+
+const LIMIT_WORDS = 10;
 
 function AiPage() {
   const navigate = useNavigate();
   const [textareaValue, setTextareaValue] = useState<string | undefined>(undefined);
   const [wordsNum, setWordsNum] = useState<number>(0);
+  const [limitError, setLimitError] = useState<boolean>(false);
   const [selectValues, setSelectValues] = useState({
     purpose: '',
     style: '',
@@ -24,9 +29,15 @@ function AiPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
+    const { length } = value;
 
-    setTextareaValue(value);
-    setWordsNum(value.length);
+    if (length <= LIMIT_WORDS) {
+      setTextareaValue(value);
+      setWordsNum(length);
+      setLimitError(false);
+    } else {
+      setLimitError(true);
+    }
   };
   const handleSelect = (e: React.MouseEvent<HTMLLIElement>) => {
     const { dataset } = e.target as HTMLElement;
@@ -68,10 +79,13 @@ function AiPage() {
                 onClick={handleSelect}
               />
             </div>
-            <p className={styles.words}>{wordsNum} / 10,000</p>
+            <p className={cn(styles.words, limitError && styles.words_error)}>
+              {limitError && <ErrorIcon className={styles.errorIcon} />}
+              {wordsNum} / {LIMIT_WORDS.toLocaleString('ko-KR')}
+            </p>
           </div>
 
-          <Textarea value={textareaValue} onChange={handleChange} />
+          <Textarea autoFocus value={textareaValue} onChange={handleChange} />
         </section>
 
         <section className={styles.footer}>

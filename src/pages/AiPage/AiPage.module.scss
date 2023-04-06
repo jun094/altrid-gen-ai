@@ -32,4 +32,14 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+
+  display: flex;
+  align-items: center;
+
+  &_error {
+    color: var(--error);
+  }
+}
+.errorIcon {
+  margin-right: 4px;
 }
