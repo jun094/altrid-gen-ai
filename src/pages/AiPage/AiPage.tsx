@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { GrammarlyEditorPlugin } from '@grammarly/editor-sdk-react';
 
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
@@ -73,7 +74,9 @@ function AiPage() {
             <p className={styles.words}>{wordsNum} / 10,000</p>
           </div>
 
-          <Textarea value={textareaValue} onChange={handleChange} />
+          <GrammarlyEditorPlugin clientId={process.env.REACT_APP_GRAMMARLY_CLIENT_ID}>
+            <Textarea value={textareaValue} onChange={handleChange} />
+          </GrammarlyEditorPlugin>
         </section>
 
         <section className={styles.footer}>
