@@ -13,8 +13,8 @@ type openAIMessage = {
   messageStream: Array<ChatCompletionRequestMessage>;
 };
 
-type checkMyWritingType = {
-  text: string;
+export type checkMyWritingType = {
+  text?: string;
   previousStream?: openAIMessage['messageStream'];
   options?: generateGPTPromptOptionsType;
 };

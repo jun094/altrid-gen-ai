@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { GrammarlyEditorPlugin } from '@grammarly/editor-sdk-react';
+import { toast } from 'react-toastify';
 import cn from 'classnames';
 
 import Navigation from 'components/Navigation';
@@ -12,7 +14,9 @@ import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 import { ReactComponent as ErrorIcon } from 'styles/assets/error.svg';
 
 import styles from './AiPage.module.scss';
-import { ROUTE_LIST } from 'constants/common';
+import { ROUTE_LIST, CHECK_MY_WRITING_OPTIONS } from 'constants/common';
+import { checkMyWriting } from 'modules/gptCore';
+import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
 
 const LIMIT_WORDS = 10000;
 
@@ -26,6 +30,8 @@ function AiPage() {
     style: '',
     tone: '',
   });
+  const [gptLoading, setGptLoading] = useState<boolean>(false);
+  const { setUserSubmittedText, setGptOutputText, setWritingOptions } = useContext(CheckMyWritingContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
@@ -49,6 +55,32 @@ function AiPage() {
     });
   };
 
+  const getCheckMyWriting = async () => {
+    setGptLoading(true);
+    setUserSubmittedText(textareaValue ?? '');
+    setWritingOptions({
+      writingPurpose: selectValues.purpose,
+      writingStyle: selectValues.style,
+      writingTone: selectValues.tone,
+    });
+    try {
+      const data = await checkMyWriting({
+        text: textareaValue,
+        options: {
+          writingPurpose: selectValues.purpose,
+          writingStyle: selectValues.style,
+          writingTone: selectValues.tone,
+        },
+      });
+      setGptOutputText(data?.content ?? '');
+      navigate(ROUTE_LIST.coach)
+    } catch (error) {
+      console.error(error);
+      toast('An error occurred while making response.', { type: 'error' });
+    }
+    setGptLoading(false);
+  };
+
   return (
     <>
       <Navigation />
@@ -63,21 +95,21 @@ function AiPage() {
               <Select
                 value={selectValues.purpose}
                 label="purpose"
-                list={['list1', 'list2', 'list3']}
+                list={CHECK_MY_WRITING_OPTIONS.purpose}
                 innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.style}
                 label="style"
-                list={['list1', 'list2', 'list3']}
+                list={CHECK_MY_WRITING_OPTIONS.style}
                 innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.tone}
                 label="tone"
-                list={['list1', 'list2', 'list3']}
+                list={CHECK_MY_WRITING_OPTIONS.tone}
                 innserClassName={styles.select}
                 onClick={handleSelect}
               />
@@ -87,19 +119,21 @@ function AiPage() {
               {wordsNum} / {LIMIT_WORDS.toLocaleString('ko-KR')}
             </p>
           </div>
-
-          <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
-          <Textarea
-            height={200}
-            autoFocus
-            value={textareaValue}
-            onChange={handleChange}
-            className={styles.textarea_mobile}
-          />
+          
+          <GrammarlyEditorPlugin clientId={process.env.REACT_APP_GRAMMARLY_CLIENT_ID}>
+            <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
+            <Textarea
+              height={200}
+              autoFocus
+              value={textareaValue}
+              onChange={handleChange}
+              className={styles.textarea_mobile}
+            />
+          </GrammarlyEditorPlugin>
         </section>
 
         <section className={styles.footer}>
-          <Button disabled={wordsNum === 0} icon={SendIcon} onClick={() => navigate(ROUTE_LIST.coach)}>
+          <Button disabled={wordsNum === 0} icon={SendIcon} isLoading={gptLoading} onClick={getCheckMyWriting}>
             SUBMIT
           </Button>
         </section>
