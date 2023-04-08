@@ -124,7 +124,7 @@ function AiPage() {
             <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
             <Textarea
               height={200}
-              autoFocus
+              // autoFocus
               value={textareaValue}
               onChange={handleChange}
               className={styles.textarea_mobile}
