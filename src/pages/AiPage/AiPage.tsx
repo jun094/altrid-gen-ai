@@ -98,7 +98,7 @@ function AiPage() {
               <img src="/loading-animation.png" alt="loading" />
             </div>
             <p className={cn(styles.modalText, styles.typingEffect)}>
-              AI is reviewing your english composition now. This may take up to several minutes.
+              AI is reviewing your english composition now. <br /> This may take up to several minutes.
             </p>
           </>
         ) : (
@@ -131,21 +131,18 @@ function AiPage() {
                 value={selectValues.purpose}
                 label="purpose"
                 list={CHECK_MY_WRITING_OPTIONS.purpose}
-                innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.style}
                 label="style"
                 list={CHECK_MY_WRITING_OPTIONS.style}
-                innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.tone}
                 label="tone"
                 list={CHECK_MY_WRITING_OPTIONS.tone}
-                innserClassName={styles.select}
                 onClick={handleSelect}
               />
             </div>
