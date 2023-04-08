@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GrammarlyEditorPlugin } from '@grammarly/editor-sdk-react';
-import { toast } from 'react-toastify';
 import cn from 'classnames';
 
 import Navigation from 'components/Navigation';
