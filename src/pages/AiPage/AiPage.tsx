@@ -26,9 +26,9 @@ function AiPage() {
   const [wordsNum, setWordsNum] = useState<number>(0);
   const [limitError, setLimitError] = useState<boolean>(false);
   const [selectValues, setSelectValues] = useState({
-    purpose: '',
-    style: '',
-    tone: '',
+    purpose: 'General',
+    style: 'General',
+    tone: 'General',
   });
   const [gptLoading, setGptLoading] = useState<boolean>(false);
   const { setUserSubmittedText, setGptOutputText, setWritingOptions } = useContext(CheckMyWritingContext);
