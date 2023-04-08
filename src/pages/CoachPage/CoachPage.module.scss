@@ -1,3 +1,5 @@
+@import '../../styles/utils.scss';
+
 /* sections */
 .container {
 }
@@ -15,6 +17,31 @@
 .textarea {
   width: 100%;
 }
+.inputsTextarea {
+  /* Tablet Device */
+  @include media-breakpoint-down(tablet) {
+    display: none;
+  }
+}
+.editedTextarea {
+  &_web {
+    display: block;
+  }
+  &_tablet {
+    display: none;
+  }
+
+  /* Tablet Device */
+  @include media-breakpoint-down(tablet) {
+    &_web {
+      display: none;
+    }
+    &_tablet {
+      display: block;
+    }
+  }
+}
+
 .badges {
   display: flex;
   gap: 8px;

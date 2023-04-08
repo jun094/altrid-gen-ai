@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import cn from 'classnames';
 
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
@@ -20,6 +21,7 @@ const DUMMY_EDITED =
   '**** EDITED **** Topic: Have you ever seen someone being bullied? What can you do to help them? When it comes to decide whether we stop bullies from hurting someone, it can be very complicated to act. Some people think freedom means that they can do anything they want, however rules are to not laugh or tease at people because of thier behaviors and looks. I strongly belive that freedom cannot allow people to do whatever they want to do if they hurt other people. I will personally help them if I see someone being bullied. First, freedom must not allow people to do whatever they want to. The morality is to respect, be heart-warming, and to care about people. When it comes to the situation when we need to decide the importance of freedom or morality over another, we have to be clear about what we need to choose and to become. For example, if there are too much freedom in the world, it will become enourmous disaster where people will steal valuable things, trash things everywhere, and eat others’ food.';
 
 function CoachPage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, copy] = useCopyToClipboard();
 
   const handleCopy = () => {
@@ -32,7 +34,7 @@ function CoachPage() {
       <PageWrapper innerClassName={styles.container} maxWidth={1226}>
         <section className={styles.textareaSection}>
           {/* 사용자가 입력한 textarea */}
-          <div className={styles.textarea}>
+          <div className={cn(styles.textarea, styles.inputsTextarea)}>
             <ul className={styles.badges}>
               <li>
                 <Badge>Purpose: General</Badge>
@@ -45,11 +47,11 @@ function CoachPage() {
               </li>
             </ul>
 
-            <Textarea value={DUMMY_SUBMITTED} minHeight={540} disabled />
+            <Textarea value={DUMMY_SUBMITTED} height={540} disabled />
           </div>
 
-          {/* 편집 가능한 textarea */}
-          <div className={styles.textarea}>
+          {/* ChatGPT에 편집된 textarea */}
+          <div className={cn(styles.textarea, styles.editedTextarea)}>
             <div className={styles.editedHeader}>
               <h6 className={styles.editedTitle}>AI writing coach</h6>
 
@@ -57,7 +59,8 @@ function CoachPage() {
                 Copy
               </Button>
             </div>
-            <Textarea value={DUMMY_EDITED} minHeight={540} readOnly />
+            <Textarea value={DUMMY_EDITED} height={540} readOnly className={styles.editedTextarea_web} />
+            <Textarea value={DUMMY_EDITED} readOnly className={styles.editedTextarea_tablet} />
           </div>
         </section>
 
