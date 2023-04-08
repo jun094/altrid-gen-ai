@@ -34,7 +34,11 @@ function CoachPage() {
 
   const handleCopy = () => {
     copy(gptOutputText);
-    toast.success('Copied. Paste it anywhere you want!');
+    toast.success('Copied. Paste it anywhere you want!', {
+      theme: 'colored',
+      // icon: false,
+      style: { backgroundColor: 'var(--success)', width: '320px' },
+    });
   };
 
   const goToInitPage = () => {
