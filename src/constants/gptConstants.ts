@@ -1,5 +1,5 @@
 export const API_SPEC = {
-  TEXT_LIMIT: 2000,
+  TEXT_LIMIT: 10000,
 };
 
 export const API_ERROR = {
