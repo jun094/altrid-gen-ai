@@ -96,4 +96,8 @@ a {
 
   /* size */
   --nav-height: 60px;
+
+  /* toastify */
+  --toastify-font-family: inherit;
+  --toastify-toast-width: auto;
 }

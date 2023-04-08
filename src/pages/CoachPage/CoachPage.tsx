@@ -36,8 +36,7 @@ function CoachPage() {
     copy(gptOutputText);
     toast.success('Copied. Paste it anywhere you want!', {
       theme: 'colored',
-      // icon: false,
-      style: { backgroundColor: 'var(--success)', width: '320px' },
+      style: { backgroundColor: 'var(--success)', borderRadius: '8px', margin: '0 20px 16px 20px' },
     });
   };
 
