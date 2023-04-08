@@ -15,12 +15,11 @@ import { ReactComponent as ErrorIcon } from 'styles/assets/error.svg';
 import { ReactComponent as FailImage } from 'styles/assets/error-image.svg';
 
 import { ROUTE_LIST, CHECK_MY_WRITING_OPTIONS } from 'constants/common';
+import { API_SPEC } from 'constants/gptConstants';
 import { checkMyWriting } from 'modules/gptCore';
 import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
 
 import styles from './AiPage.module.scss';
-
-const LIMIT_WORDS = 10000;
 
 function AiPage() {
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ function AiPage() {
     const { value } = e.target;
     const { length } = value;
 
-    if (length <= LIMIT_WORDS) {
+    if (length <= API_SPEC.TEXT_LIMIT) {
       setTextareaValue(value);
       setWordsNum(length);
       setLimitError(false);
@@ -147,7 +146,7 @@ function AiPage() {
             </div>
             <p className={cn(styles.words, limitError && styles.words_error)}>
               {limitError && <ErrorIcon className={styles.errorIcon} />}
-              {wordsNum} / {LIMIT_WORDS.toLocaleString('ko-KR')}
+              {wordsNum} / {API_SPEC.TEXT_LIMIT.toLocaleString('ko-KR')}
             </p>
           </div>
 
