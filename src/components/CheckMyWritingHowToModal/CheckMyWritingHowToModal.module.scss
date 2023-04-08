@@ -1,5 +1,17 @@
 @import '../../styles/utils.scss';
 
+.checkMyWritingHowToModalContainer {
+  padding: 48px 40px 40px 40px !important;
+  width: 600px !important;
+
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    height: 100%;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
 .checkMyWritingHowToModal {
   display: flex;
   flex-direction: column;
@@ -47,6 +59,12 @@
 
   /* Mobile Device */
   @media (max-width: $breakpoint-mobile) {
+    justify-content: space-between;
+    height: 100%;
+
+    &_content {
+      overflow-y: auto;
+    }
     &_closeIcon {
       right: 8px;
     }
