@@ -8,7 +8,7 @@ html {
 *::after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
-  box-sizing: inherit;
+  box-sizing: border-box;
   font: inherit;
 }
 h1,
@@ -61,10 +61,11 @@ a {
 }
 :root {
   /* color */
-  --primary: #8142ef;
+  --primary: #6949ff;
   --primaryKey: #9d55f1;
   --primaryLight: #b566f2;
   --primaryShadow: #7a39eb5c;
+  --primaryText: #6e6c83;
 
   --black: #000000;
   --white: #ffffff;
@@ -80,6 +81,7 @@ a {
   --lightGray: #fbfbfb;
 
   --error: #ff0000;
+  --success: #2ecb6f;
 
   --primaryRGB: 129, 66, 239;
   --primaryKeyRGB: 157, 85, 241;
@@ -95,6 +97,7 @@ a {
   /* size */
   --nav-height: 60px;
 
-  /* break point */
-  --tablet-device: 1024px;
+  /* toastify */
+  --toastify-font-family: inherit;
+  --toastify-toast-width: auto;
 }

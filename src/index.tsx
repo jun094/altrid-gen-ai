@@ -5,11 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
+import { CheckMyWritingContextProvider } from 'contexts/CheckMyWritingContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <Router>
-    <App />
+    <CheckMyWritingContextProvider>
+      <App />
+    </CheckMyWritingContextProvider>
   </Router>
 );
 

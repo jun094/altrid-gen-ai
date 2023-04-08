@@ -1,14 +1,20 @@
 import { ToastContainer } from 'react-toastify';
 import PageRoutes from 'pages/PageRoutes';
+import { AppPortal } from 'AppPortal';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <>
-      <ToastContainer autoClose={1500} hideProgressBar={true} />
+    <AppPortal.Provider>
+      <ToastContainer
+        autoClose={150000}
+        hideProgressBar={true}
+        position="bottom-center"
+        style={{ fontFamily: 'inherit' }}
+      />
       <PageRoutes />
-    </>
+    </AppPortal.Provider>
   );
 }
 

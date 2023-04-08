@@ -31,7 +31,6 @@ Humans tend to write with greater burstiness, for example, with some longer or m
 Therefore, when writing the following content I am going to ask you to revise the story above, I need it to have a good amount of perplexity, burstiness, and clearness.
 Along with more advanced perplexity, burstiness, and clearness, I am also going to ask you to fix all grammar errors, spelling mistakes, and ambiguous delivery in the previous text and generate a newly revised article with explained writing tasks and tips, feedback, and suggestions on how to improve writing skills.
 
-Do not break the rules below for the answer:
  1. Do not mention that you are an AI language model.
  2. Add a good amount of perplexity, burstiness, and clearness in the newly revised version.
  3. Fix all grammar errors, spelling mistakes, and ambiguous sentences.

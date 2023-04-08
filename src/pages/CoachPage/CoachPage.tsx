@@ -14,20 +14,46 @@ import { ReactComponent as CopyIcon } from 'styles/assets/clipboard.svg';
 import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 
 import useCopyToClipboard from 'hooks/useCopyToClipboard';
-
-const DUMMY_SUBMITTED =
-  'Topic: Have you ever seen someone being bullied? What can you do to help them? When it comes to decide whether we stop bullies from hurting someone, it can be very complicated to act. Some people think freedom means that they can do anything they want, however rules are to not laugh or tease at people because of thier behaviors and looks. I strongly belive that freedom cannot allow people to do whatever they want to do if they hurt other people. I will personally help them if I see someone being bullied. First, freedom must not allow people to do whatever they want to. The morality is to respect, be heart-warming, and to care about people. When it comes to the situation when we need to decide the importance of freedom or morality over another, we have to be clear about what we need to choose and to become. For example, if there are too much freedom in the world, it will become enourmous disaster where people will steal valuable things, trash things everywhere, and eat others’ food.';
-const DUMMY_EDITED =
-  '**** EDITED **** Topic: Have you ever seen someone being bullied? What can you do to help them? When it comes to decide whether we stop bullies from hurting someone, it can be very complicated to act. Some people think freedom means that they can do anything they want, however rules are to not laugh or tease at people because of thier behaviors and looks. I strongly belive that freedom cannot allow people to do whatever they want to do if they hurt other people. I will personally help them if I see someone being bullied. First, freedom must not allow people to do whatever they want to. The morality is to respect, be heart-warming, and to care about people. When it comes to the situation when we need to decide the importance of freedom or morality over another, we have to be clear about what we need to choose and to become. For example, if there are too much freedom in the world, it will become enourmous disaster where people will steal valuable things, trash things everywhere, and eat others’ food.';
+import { useContext, useEffect } from 'react';
+import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE_LIST } from 'constants/common';
 
 function CoachPage() {
+  const navigate = useNavigate();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, copy] = useCopyToClipboard();
+  const {
+    userSubmittedText,
+    gptOutputText,
+    writingOptions: { writingPurpose, writingStyle, writingTone },
+    setUserSubmittedText,
+    setGptOutputText,
+    setWritingOptions,
+  } = useContext(CheckMyWritingContext);
 
   const handleCopy = () => {
-    copy(DUMMY_EDITED);
-    toast('copied!');
+    copy(gptOutputText);
+    toast.success('Copied. Paste it anywhere you want!', {
+      theme: 'colored',
+      style: { backgroundColor: 'var(--success)', borderRadius: '8px', margin: '0 20px 16px 20px' },
+    });
   };
+
+  const goToInitPage = () => {
+    setUserSubmittedText(''),
+      setGptOutputText(''),
+      setWritingOptions({ writingPurpose: 'General', writingStyle: 'General', writingTone: 'General' }),
+      navigate(ROUTE_LIST.ai);
+  };
+
+  useEffect(() => {
+    if (!userSubmittedText || !gptOutputText) {
+      navigate(ROUTE_LIST.ai);
+    }
+    scrollTo(0, 0);
+  }, [userSubmittedText, gptOutputText]);
+
   return (
     <>
       <Navigation />
@@ -37,17 +63,17 @@ function CoachPage() {
           <div className={cn(styles.textarea, styles.inputsTextarea)}>
             <ul className={styles.badges}>
               <li>
-                <Badge>Purpose: General</Badge>
+                <Badge>Purpose: {writingPurpose}</Badge>
               </li>
               <li>
-                <Badge>Style: General</Badge>
+                <Badge>Style: {writingStyle}</Badge>
               </li>
               <li>
-                <Badge>Tone: General</Badge>
+                <Badge>Tone: {writingTone}</Badge>
               </li>
             </ul>
 
-            <Textarea value={DUMMY_SUBMITTED} height={540} disabled />
+            <Textarea value={userSubmittedText} height={540} disabled />
           </div>
 
           {/* ChatGPT에 편집된 textarea */}
@@ -59,13 +85,16 @@ function CoachPage() {
                 Copy
               </Button>
             </div>
-            <Textarea value={DUMMY_EDITED} height={540} readOnly className={styles.editedTextarea_web} />
-            <Textarea value={DUMMY_EDITED} readOnly className={styles.editedTextarea_tablet} />
+
+            <Textarea value={gptOutputText} height={540} readOnly className={styles.editedTextarea_web} />
+            <Textarea value={gptOutputText} readOnly className={styles.editedTextarea_tablet} />
           </div>
         </section>
 
         <section className={styles.footer}>
-          <Button icon={SendIcon}>TRY AGAIN</Button>
+          <Button icon={SendIcon} onClick={goToInitPage}>
+            TRY AGAIN
+          </Button>
         </section>
       </PageWrapper>
     </>

@@ -18,8 +18,10 @@
   width: 100%;
 }
 .inputsTextarea {
+  display: block;
+
   /* Tablet Device */
-  @include media-breakpoint-down(tablet) {
+  @media (max-width: $breakpoint-tablet) {
     display: none;
   }
 }
@@ -32,7 +34,7 @@
   }
 
   /* Tablet Device */
-  @include media-breakpoint-down(tablet) {
+  @media (max-width: $breakpoint-tablet) {
     &_web {
       display: none;
     }
