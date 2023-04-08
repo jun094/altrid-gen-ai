@@ -1,6 +1,8 @@
+@import '../../styles/utils.scss';
+
 .container {
-  background: var(--black);
-  opacity: 0.6;
+  background: rgba(var(--blackRGB), 0.6);
+
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .modal {
@@ -16,4 +19,9 @@
   width: 470px;
   padding: 40px 60px;
   border-radius: 8px;
+
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+  }
 }
