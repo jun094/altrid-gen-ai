@@ -14,7 +14,7 @@ import { ReactComponent as ErrorIcon } from 'styles/assets/error.svg';
 import styles from './AiPage.module.scss';
 import { ROUTE_LIST } from 'constants/common';
 
-const LIMIT_WORDS = 10;
+const LIMIT_WORDS = 10000;
 
 function AiPage() {
   const navigate = useNavigate();
@@ -64,18 +64,21 @@ function AiPage() {
                 value={selectValues.purpose}
                 label="purpose"
                 list={['list1', 'list2', 'list3']}
+                innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.style}
                 label="style"
                 list={['list1', 'list2', 'list3']}
+                innserClassName={styles.select}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.tone}
                 label="tone"
                 list={['list1', 'list2', 'list3']}
+                innserClassName={styles.select}
                 onClick={handleSelect}
               />
             </div>
@@ -85,7 +88,14 @@ function AiPage() {
             </p>
           </div>
 
-          <Textarea autoFocus value={textareaValue} onChange={handleChange} />
+          <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
+          <Textarea
+            height={200}
+            autoFocus
+            value={textareaValue}
+            onChange={handleChange}
+            className={styles.textarea_mobile}
+          />
         </section>
 
         <section className={styles.footer}>

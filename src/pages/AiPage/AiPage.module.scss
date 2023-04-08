@@ -1,3 +1,5 @@
+@import '../../styles/utils.scss';
+
 /* sections */
 .header {
   margin-bottom: 34px;
@@ -22,10 +24,46 @@
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: 14px;
+
+  /* Mobile Device */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 .selects {
   display: flex;
   gap: 14px;
+
+  /* Mobile Device */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+}
+.select {
+  /* Mobile Device */
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+.textarea {
+  &_web {
+    display: block;
+  }
+  &_mobile {
+    display: none;
+  }
+
+  /* Mobile Device */
+  @media (max-width: 768px) {
+    &_web {
+      display: none;
+    }
+    &_mobile {
+      display: block;
+    }
+  }
 }
 .words {
   color: var(--netural7);

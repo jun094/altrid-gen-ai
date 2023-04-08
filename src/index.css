@@ -61,7 +61,7 @@ a {
 }
 :root {
   /* color */
-  --primary: #8142ef;
+  --primary: #6949FF;
   --primaryKey: #9d55f1;
   --primaryLight: #b566f2;
   --primaryShadow: #7a39eb5c;
@@ -94,7 +94,4 @@ a {
 
   /* size */
   --nav-height: 60px;
-
-  /* break point */
-  --tablet-device: 1024px;
 }

@@ -1,4 +1,5 @@
 $grid-breakpoints: (
+  mobile: 768px,
   tablet: 1024px,
 ) !default;
 
@@ -14,6 +15,7 @@ $grid-breakpoints: (
 
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
+
   @if $max {
     @media (max-width: $max) {
       @content;

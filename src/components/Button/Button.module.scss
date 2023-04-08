@@ -2,10 +2,13 @@
 .container {
   border: none;
   cursor: pointer;
-  transition: opacity 0.2s ease;
   white-space: nowrap;
   user-select: none;
+  transition: transform 0.2s, background 0.15s, opacity 0.2s ease;
 
+  &:active {
+    transform: scale(1.05);
+  }
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -25,10 +28,9 @@
   border-radius: 40px;
   background: linear-gradient(88.37deg, var(--primary) -3.68%, var(--primaryLight) 103.37%);
   box-shadow: 0px 6px 23px var(--primaryShadow);
-  transition: background 0.2s;
 
-  &:not(:disabled) &:hover,
-  &:focus {
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     background: linear-gradient(0deg, rgba(var(--blackRGB), 0.15), rgba(var(--blackRGB), 0.15)),
       linear-gradient(88.37deg, var(--primary) -3.68%, var(--primaryLight) 103.37%);
   }
@@ -39,6 +41,13 @@
   box-shadow: 0px 2px 0px rgba(var(--blackRGB), 0.043);
   border: 1px solid var(--netural5);
   border-radius: 8px;
+
+  &:not(:disabled):hover {
+    background: var(--gray);
+  }
+  &:not(:disabled):focus {
+    border: 1px solid var(--primary);
+  }
 }
 
 /* sizes */
