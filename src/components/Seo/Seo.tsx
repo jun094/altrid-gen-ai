@@ -19,6 +19,13 @@ const Seo = ({
     <Helmet>
       <title>{title}</title>
 
+      <link rel="icon" href="/favicon.png" />
+      <link rel="apple-touch-icon" href="/logo.png" />
+      <link rel="manifest" href="/manifest.json" />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#ffffff" />
+
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
