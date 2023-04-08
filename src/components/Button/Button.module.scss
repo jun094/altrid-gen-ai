@@ -6,7 +6,7 @@
   user-select: none;
   transition: transform 0.2s, background 0.15s, opacity 0.2s ease;
 
-  &:active {
+  &:not(:disabled):active {
     transform: scale(1.05);
   }
   &:disabled {
