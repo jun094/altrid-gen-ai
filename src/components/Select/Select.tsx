@@ -11,21 +11,22 @@ type SelectProps = {
   label: string;
   list: string[];
   className?: string;
+  innserClassName?: string;
   onClick: any;
 };
 
-const Select = ({ value, className, label, list, onClick }: SelectProps) => {
+const Select = ({ value, className, innserClassName, label, list, onClick }: SelectProps) => {
   const selected = value || list[0];
 
   return (
     <div className={cn(styles.container, className)}>
       <p className={styles.label}>{label}</p>
       <Dropdown posY={45}>
-        <Dropdown.Button className={styles.dropdownButton}>
+        <Dropdown.Button className={cn(styles.dropdownButton, innserClassName)}>
           <p className={styles.item}>{selected}</p>
           <ArrowIcon className={styles.arrowIcon} />
         </Dropdown.Button>
-        <Dropdown.Menu className={styles.dropdownMenu}>
+        <Dropdown.Menu className={cn(styles.dropdownMenu, innserClassName)}>
           {list.map(item => (
             <li
               data-label={label}

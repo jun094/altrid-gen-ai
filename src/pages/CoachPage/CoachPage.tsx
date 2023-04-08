@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import cn from 'classnames';
 
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
@@ -20,6 +21,7 @@ import { ROUTE_LIST } from 'constants/common';
 
 function CoachPage() {
   const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, copy] = useCopyToClipboard();
   const {
     userSubmittedText,
@@ -37,10 +39,10 @@ function CoachPage() {
 
   const goToInitPage = () => {
     setUserSubmittedText(''),
-    setGptOutputText(''),
-    setWritingOptions({writingPurpose: 'General', writingStyle: 'General', writingTone: 'General'}),
-    navigate(ROUTE_LIST.ai);
-  }
+      setGptOutputText(''),
+      setWritingOptions({ writingPurpose: 'General', writingStyle: 'General', writingTone: 'General' }),
+      navigate(ROUTE_LIST.ai);
+  };
 
   useEffect(() => {
     if (!userSubmittedText || !gptOutputText) {
@@ -53,7 +55,7 @@ function CoachPage() {
       <PageWrapper innerClassName={styles.container} maxWidth={1226}>
         <section className={styles.textareaSection}>
           {/* 사용자가 입력한 textarea */}
-          <div className={styles.textarea}>
+          <div className={cn(styles.textarea, styles.inputsTextarea)}>
             <ul className={styles.badges}>
               <li>
                 <Badge>Purpose: {writingPurpose}</Badge>
@@ -66,11 +68,11 @@ function CoachPage() {
               </li>
             </ul>
 
-            <Textarea value={userSubmittedText} minHeight={540} disabled />
+            <Textarea value={userSubmittedText} height={540} disabled />
           </div>
 
-          {/* 편집 가능한 textarea */}
-          <div className={styles.textarea}>
+          {/* ChatGPT에 편집된 textarea */}
+          <div className={cn(styles.textarea, styles.editedTextarea)}>
             <div className={styles.editedHeader}>
               <h6 className={styles.editedTitle}>AI writing coach</h6>
 
@@ -78,12 +80,15 @@ function CoachPage() {
                 Copy
               </Button>
             </div>
-            <Textarea value={gptOutputText} minHeight={540} readOnly />
+            <Textarea value={gptOutputText} height={540} readOnly className={styles.editedTextarea_web} />
+            <Textarea value={gptOutputText} readOnly className={styles.editedTextarea_tablet} />
           </div>
         </section>
 
         <section className={styles.footer}>
-          <Button icon={SendIcon} onClick={goToInitPage}>TRY AGAIN</Button>
+          <Button icon={SendIcon} onClick={goToInitPage}>
+            TRY AGAIN
+          </Button>
         </section>
       </PageWrapper>
     </>

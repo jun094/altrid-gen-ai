@@ -1,16 +1,26 @@
+import cn from 'classnames';
 import styles from './Textarea.module.scss';
 
 type TextareaProps = {
+  className?: string;
   placeholder?: string;
-  minHeight?: string | number;
+  height?: string | number;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea = ({
-  placeholder = 'Try writing in English here, or paste an existing one',
-  minHeight = 460,
+  className,
+  placeholder = 'Try writing anythings with specific purposes in English here, or paste an existing one to revise.',
+  height = 460,
   ...rest
 }: TextareaProps) => {
-  return <textarea style={{ minHeight }} className={styles.textarea} placeholder={placeholder} {...rest}></textarea>;
+  return (
+    <textarea
+      style={{ height }}
+      className={cn(styles.textarea, className)}
+      placeholder={placeholder}
+      {...rest}
+    ></textarea>
+  );
 };
 
 export default Textarea;
