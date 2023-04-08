@@ -81,3 +81,27 @@
 .errorIcon {
   margin-right: 4px;
 }
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+.modalImage {
+  text-align: center;
+  margin-bottom: 10px;
+
+  & img {
+    width: 160px;
+    height: 160px;
+  }
+}
+.modalText {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--primaryText);
+}
+.modalButton {
+  margin-top: 30px;
+  text-align: center;
+}

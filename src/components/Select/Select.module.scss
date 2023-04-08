@@ -1,3 +1,5 @@
+@import '../../styles/utils.scss';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -49,6 +51,8 @@
   border: 1px solid rgba(var(--primaryKeyRGB), 0.1);
   box-shadow: 0px 6px 23px var(--primaryShadow);
   border-radius: 8px;
+  max-height: 180px;
+  overflow-y: auto;
 }
 
 .selectedItem {
@@ -67,5 +71,13 @@
 
   &:hover {
     background: var(--gray);
+  }
+}
+
+/* Mobile Device */
+@media (max-width: $breakpoint-mobile) {
+  .dropdownButton,
+  .dropdownMenu {
+    width: 100%;
   }
 }
