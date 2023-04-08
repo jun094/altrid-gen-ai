@@ -1,23 +1,24 @@
 import Button from 'components/Button';
-import { ReactComponent as StepImage1 } from 'styles/assets/how-to-step1.svg';
-import { ReactComponent as StepImage2 } from 'styles/assets/how-to-step2.svg';
-import { ReactComponent as StepImage3 } from 'styles/assets/how-to-step3.svg';
-import styles from './CheckMyWritingHowToModal.module.scss';
-import React from 'react';
 import Modal from 'components/Modal';
 
+import styles from './CheckMyWritingHowToModal.module.scss';
+
+const STEP1_IAMGE = '/assets/step1-image.png';
+const STEP2_IAMGE = '/assets/step2-image.png';
+const STEP3_IAMGE = '/assets/step3-image.png';
+
 type StepItemProps = {
-  stepImage: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  stepImage: string;
   stepTitle: string;
   stepText?: string;
   stepDescription?: string;
 };
 
-const StepItem = ({ stepImage: StepImage, stepTitle, stepText, stepDescription }: StepItemProps) => {
+const StepItem = ({ stepImage, stepTitle, stepText, stepDescription }: StepItemProps) => {
   return (
     <div className={styles.stepItem}>
       <div className={styles.stepItem_image}>
-        <StepImage />
+        <img src={stepImage} alt="step" />
       </div>
       <div className={styles.stepItem_textContent}>
         <div className={styles.stepItem_title}>{stepTitle}</div>
@@ -56,19 +57,21 @@ function CheckMyWritingHowToModal({ isShow, onCloseClick, onOkClick }: CheckMyWr
             stepText="Get the writing ready in eletrical form of document!
 Or, you can also start typing right away!"
             stepDescription="It could be anything from writing assignments from your history class, an e-mail for your teacher asking something particular with formal and polite tone."
-            stepImage={StepImage1}
+            stepImage={STEP1_IAMGE}
           />
-          <StepItem stepTitle="STEP 2" stepText="Simply copy and paste it!" stepImage={StepImage2} />
+          <StepItem stepTitle="STEP 2" stepText="Simply copy and paste it!" stepImage={STEP2_IAMGE} />
           <StepItem
             stepTitle="STEP 3"
             stepText="Last but not least! Click the submit button and let your AI writing coach to do the work!"
-            stepImage={StepImage3}
+            stepImage={STEP3_IAMGE}
           />
         </div>
         <div className={styles.checkMyWritingHowToModal_contact}>
-          Please feel free to contact us for any inquiries.
-          <br />
-          e-mail: rikjeon94@optmier.com
+          <p>
+            Please feel free to contact us for any inquiries.
+            <br />
+            e-mail: <span className={styles.checkMyWritingHowToModal_contactEmail}>rikjeon94@optmier.com</span>
+          </p>
         </div>
 
         <div className={styles.checkMyWritingHowToModal_bottom}>
