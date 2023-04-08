@@ -1,0 +1,95 @@
+@import '../../styles/utils.scss';
+
+.checkMyWritingHowToModal {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &_header {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  &_closeIcon {
+    position: absolute;
+    right: -12px;
+    top: -20px;
+    display: flex;
+    cursor: pointer;
+  }
+
+  &_content {
+    margin-top: 34px;
+  }
+
+  &_contact {
+    background-color: var(--lightGray);
+    border-radius: 8px;
+    color: var(--netural7);
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  &_bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    &_closeIcon {
+      right: 8px;
+    }
+  }
+}
+
+.stepItem {
+  align-items: center;
+  display: flex;
+
+  &_textContent {
+    margin-left: 20px;
+  }
+
+  &_title {
+    color: var(--primaryLight);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  &_text {
+    color: var(--textColor);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-top: 2px;
+  }
+
+  &_description {
+    color: var(--netural7);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    margin-top: 4px;
+  }
+
+  & + & {
+    margin-top: 28px;
+  }
+
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    align-items: initial;
+  }
+}
