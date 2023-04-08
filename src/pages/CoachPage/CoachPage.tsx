@@ -34,7 +34,7 @@ function CoachPage() {
 
   const handleCopy = () => {
     copy(gptOutputText);
-    toast('copied!');
+    toast.success('Copied. Paste it anywhere you want!');
   };
 
   const goToInitPage = () => {
@@ -46,9 +46,10 @@ function CoachPage() {
 
   useEffect(() => {
     if (!userSubmittedText || !gptOutputText) {
-      navigate(ROUTE_LIST.ai);
+      // navigate(ROUTE_LIST.ai);
     }
   }, [userSubmittedText, gptOutputText]);
+
   return (
     <>
       <Navigation />
@@ -80,6 +81,7 @@ function CoachPage() {
                 Copy
               </Button>
             </div>
+
             <Textarea value={gptOutputText} height={540} readOnly className={styles.editedTextarea_web} />
             <Textarea value={gptOutputText} readOnly className={styles.editedTextarea_tablet} />
           </div>
