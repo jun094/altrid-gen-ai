@@ -8,7 +8,7 @@ function App() {
   return (
     <AppPortal.Provider>
       <ToastContainer
-        autoClose={1500}
+        autoClose={5000}
         hideProgressBar={true}
         position="bottom-center"
         style={{ fontFamily: 'inherit' }}

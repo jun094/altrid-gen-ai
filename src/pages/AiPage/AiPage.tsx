@@ -127,19 +127,19 @@ function AiPage() {
             <div className={styles.selects}>
               <Select
                 value={selectValues.purpose}
-                label="purpose"
+                label="Purpose"
                 list={CHECK_MY_WRITING_OPTIONS.purpose}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.style}
-                label="style"
+                label="Style"
                 list={CHECK_MY_WRITING_OPTIONS.style}
                 onClick={handleSelect}
               />
               <Select
                 value={selectValues.tone}
-                label="tone"
+                label="Tone"
                 list={CHECK_MY_WRITING_OPTIONS.tone}
                 onClick={handleSelect}
               />

@@ -39,16 +39,24 @@
   &_contact {
     background-color: var(--lightGray);
     border-radius: 8px;
-    color: var(--netural7);
+
     display: flex;
     flex-direction: column;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+
     justify-content: center;
     margin-top: 28px;
     padding: 12px 0;
-    text-align: center;
+
+    & p {
+      color: var(--netural7);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+  &_contactEmail {
+    color: var(--link);
   }
 
   &_bottom {
@@ -100,6 +108,12 @@
     font-weight: 500;
     line-height: 14px;
     margin-top: 4px;
+  }
+  &_image {
+    & img {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   & + & {
