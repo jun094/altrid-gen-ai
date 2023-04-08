@@ -50,7 +50,7 @@ function CoachPage() {
 
   useEffect(() => {
     if (!userSubmittedText || !gptOutputText) {
-      navigate(ROUTE_LIST.ai);
+      // navigate(ROUTE_LIST.ai);
     }
     scrollTo(0, 0);
   }, [userSubmittedText, gptOutputText]);
