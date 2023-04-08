@@ -1,7 +1,13 @@
 import Seo from 'components/Seo';
+import { ReactComponent as QuestionIcon } from 'styles/assets/question.svg';
+
 import styles from './Navigation.module.scss';
 
 const Navigation = () => {
+  const handleQuestion = () => {
+    console.log('click question !');
+  };
+
   return (
     <>
       <Seo />
@@ -10,6 +16,10 @@ const Navigation = () => {
           <img src="/logo.png" className={styles.logo} />
           <img src="/logo-text.png" className={styles.logoText} />
         </a>
+
+        <span className={styles.question} onClick={handleQuestion}>
+          <QuestionIcon />
+        </span>
       </nav>
     </>
   );
