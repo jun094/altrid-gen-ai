@@ -9,14 +9,16 @@ import PageWrapper from 'components/PageWrapper';
 import Textarea from 'components/Textarea';
 import Button from 'components/Button';
 import Select from 'components/Select';
+import Modal from 'components/Modal';
 
 import { ReactComponent as SendIcon } from 'styles/assets/send-white.svg';
 import { ReactComponent as ErrorIcon } from 'styles/assets/error.svg';
 
-import styles from './AiPage.module.scss';
 import { ROUTE_LIST, CHECK_MY_WRITING_OPTIONS } from 'constants/common';
 import { checkMyWriting } from 'modules/gptCore';
 import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
+
+import styles from './AiPage.module.scss';
 
 const LIMIT_WORDS = 10000;
 
@@ -73,7 +75,7 @@ function AiPage() {
         },
       });
       setGptOutputText(data?.content ?? '');
-      navigate(ROUTE_LIST.coach)
+      navigate(ROUTE_LIST.coach);
     } catch (error) {
       console.error(error);
       toast('An error occurred while making response.', { type: 'error' });
@@ -119,7 +121,7 @@ function AiPage() {
               {wordsNum} / {LIMIT_WORDS.toLocaleString('ko-KR')}
             </p>
           </div>
-          
+
           <GrammarlyEditorPlugin clientId={process.env.REACT_APP_GRAMMARLY_CLIENT_ID}>
             <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
             <Textarea
