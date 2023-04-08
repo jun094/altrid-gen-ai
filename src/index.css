@@ -94,4 +94,7 @@ a {
 
   /* size */
   --nav-height: 60px;
+
+  /* break point */
+  --tablet-device: 1024px;
 }

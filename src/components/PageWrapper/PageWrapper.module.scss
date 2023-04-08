@@ -1,3 +1,5 @@
+@import '../../styles/utils.scss';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,11 @@
   min-height: calc(100vh - var(--nav-height));
   padding: 32px 27px 19px 27px;
   background-color: var(--lightGray);
+
+  /* Tablet Device */
+  @include media-breakpoint-down(tablet) {
+    padding: 32px 20px 19px 20px;
+  }
 }
 
 .wrapper {
