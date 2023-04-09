@@ -5,8 +5,8 @@ export const ROUTE_LIST = {
 };
 
 export const CHECK_MY_WRITING_OPTIONS = {
-  purpose: ['General', 'Academic', 'Business', 'Creative', 'Diary', 'Email', 'Formal Statements', 'School Application'],
-  style: [
+  Purpose: ['General', 'Academic', 'Business', 'Creative', 'Diary', 'Email', 'Formal Statements', 'School Application'],
+  Style: [
     'General',
     'Academic',
     'Analytical',
@@ -26,7 +26,7 @@ export const CHECK_MY_WRITING_OPTIONS = {
     'Subjective',
     'Technical',
   ],
-  tone: [
+  Tone: [
     'General',
     'Advocatory',
     'Assertive',
