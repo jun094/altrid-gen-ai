@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GrammarlyEditorPlugin } from '@grammarly/editor-sdk-react';
 import cn from 'classnames';
@@ -19,29 +19,33 @@ import { API_SPEC } from 'constants/gptConstants';
 import { checkMyWriting } from 'modules/gptCore';
 import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
 
+import type { WritinOptionsType } from 'types/common';
+
 import styles from './AiPage.module.scss';
 
 function AiPage() {
   const navigate = useNavigate();
-  const [textareaValue, setTextareaValue] = useState<string | undefined>(undefined);
   const [wordsNum, setWordsNum] = useState<number>(0);
   const [limitError, setLimitError] = useState<boolean>(false);
   const [gptError, setGptError] = useState<boolean>(false);
   const [gptLoading, setGptLoading] = useState<boolean>(false);
 
-  const [selectValues, setSelectValues] = useState({
+  const [selectValues, setSelectValues] = useState<WritinOptionsType>({
     Purpose: 'General',
     Style: 'General',
     Tone: 'General',
   });
-  const { setUserSubmittedText, setGptOutputText, setWritingOptions } = useContext(CheckMyWritingContext);
+
+  const { userSubmittedText, setUserSubmittedText, setGptOutputText, setWritingOptions } =
+    useContext(CheckMyWritingContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
     const { length } = value;
 
     if (length <= API_SPEC.TEXT_LIMIT) {
-      setTextareaValue(value);
+      setUserSubmittedText(value);
+
       setWordsNum(length);
       setLimitError(false);
     } else {
@@ -60,7 +64,6 @@ function AiPage() {
 
   const getCheckMyWriting = async () => {
     setGptLoading(true);
-    setUserSubmittedText(textareaValue ?? '');
     setWritingOptions({
       writingPurpose: selectValues.Purpose,
       writingStyle: selectValues.Style,
@@ -68,7 +71,7 @@ function AiPage() {
     });
     try {
       const data = await checkMyWriting({
-        text: textareaValue,
+        text: userSubmittedText,
         options: {
           writingPurpose: selectValues.Purpose,
           writingStyle: selectValues.Style,
@@ -86,6 +89,10 @@ function AiPage() {
     }
     setGptLoading(false);
   };
+
+  useEffect(() => {
+    if (userSubmittedText) setWordsNum(userSubmittedText.length);
+  }, [userSubmittedText]);
 
   return (
     <>
@@ -119,7 +126,11 @@ function AiPage() {
       <Navigation />
       <PageWrapper>
         <section className={styles.header}>
-          <h1 className={styles.title}>Let&apos;s get your writing revised!</h1>
+          <h1 className={cn(styles.title, styles.title_mobile)}>
+            Let&apos;s get your
+            <br /> writing revised!
+          </h1>
+          <h1 className={cn(styles.title, styles.title_web)}>Let&apos;s get your writing revised!</h1>
         </section>
 
         <section className={styles.body}>
@@ -151,11 +162,10 @@ function AiPage() {
           </div>
 
           <GrammarlyEditorPlugin clientId={process.env.REACT_APP_GRAMMARLY_CLIENT_ID}>
-            <Textarea autoFocus value={textareaValue} onChange={handleChange} className={styles.textarea_web} />
+            <Textarea autoFocus value={userSubmittedText} onChange={handleChange} className={styles.textarea_web} />
             <Textarea
               height={200}
-              // autoFocus
-              value={textareaValue}
+              value={userSubmittedText}
               onChange={handleChange}
               className={styles.textarea_mobile}
             />
