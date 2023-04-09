@@ -30,9 +30,9 @@ function AiPage() {
   const [gptLoading, setGptLoading] = useState<boolean>(false);
 
   const [selectValues, setSelectValues] = useState({
-    purpose: 'General',
-    style: 'General',
-    tone: 'General',
+    Purpose: 'General',
+    Style: 'General',
+    Tone: 'General',
   });
   const { setUserSubmittedText, setGptOutputText, setWritingOptions } = useContext(CheckMyWritingContext);
 
@@ -62,17 +62,17 @@ function AiPage() {
     setGptLoading(true);
     setUserSubmittedText(textareaValue ?? '');
     setWritingOptions({
-      writingPurpose: selectValues.purpose,
-      writingStyle: selectValues.style,
-      writingTone: selectValues.tone,
+      writingPurpose: selectValues.Purpose,
+      writingStyle: selectValues.Style,
+      writingTone: selectValues.Tone,
     });
     try {
       const data = await checkMyWriting({
         text: textareaValue,
         options: {
-          writingPurpose: selectValues.purpose,
-          writingStyle: selectValues.style,
-          writingTone: selectValues.tone,
+          writingPurpose: selectValues.Purpose,
+          writingStyle: selectValues.Style,
+          writingTone: selectValues.Tone,
         },
       });
 
@@ -126,21 +126,21 @@ function AiPage() {
           <div className={styles.forms}>
             <div className={styles.selects}>
               <Select
-                value={selectValues.purpose}
+                value={selectValues.Purpose}
                 label="Purpose"
-                list={CHECK_MY_WRITING_OPTIONS.purpose}
+                list={CHECK_MY_WRITING_OPTIONS.Purpose}
                 onClick={handleSelect}
               />
               <Select
-                value={selectValues.style}
+                value={selectValues.Style}
                 label="Style"
-                list={CHECK_MY_WRITING_OPTIONS.style}
+                list={CHECK_MY_WRITING_OPTIONS.Style}
                 onClick={handleSelect}
               />
               <Select
-                value={selectValues.tone}
+                value={selectValues.Tone}
                 label="Tone"
-                list={CHECK_MY_WRITING_OPTIONS.tone}
+                list={CHECK_MY_WRITING_OPTIONS.Tone}
                 onClick={handleSelect}
               />
             </div>
