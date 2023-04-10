@@ -12,21 +12,67 @@
   top: 0;
   background-color: var(--white);
   z-index: 999;
+}
+/* 왼쪽 로고 영역 */
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 28px;
+  height: 28px;
+}
+.logoText {
+  height: 12px;
+  padding-left: 10px;
+}
 
-  // TODO: 스크롤되면 border-bottom
-  // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* 오른쪽 utils 버튼 영역 */
+.utils {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.insertText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
 
-  & .logoLink {
-    display: flex;
-    align-items: center;
+  & p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--netural7);
   }
-  & .logo {
-    width: 28px;
-    height: 28px;
+}
+.insertTextIcon {
+  width: 20px;
+  height: 20px;
+  background-color: var(--netural5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.insertTextDesc {
+  &_web {
+    display: block;
   }
-  & .logoText {
-    height: 12px;
-    padding-left: 10px;
+  &_mobile {
+    display: none;
+  }
+
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    &_web {
+      display: none;
+    }
+    &_mobile {
+      display: block;
+    }
   }
 }
 .question {

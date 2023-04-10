@@ -15,9 +15,26 @@
 .title {
   font-weight: 600;
   font-size: 28px;
-  line-height: 28px;
+  line-height: 34px;
+
   color: var(--netural11);
   text-align: center;
+
+  &_web {
+    display: block;
+  }
+  &_mobile {
+    display: none;
+  }
+  /* Mobile Device */
+  @media (max-width: $breakpoint-mobile) {
+    &_web {
+      display: none;
+    }
+    &_mobile {
+      display: block;
+    }
+  }
 }
 .forms {
   display: flex;
