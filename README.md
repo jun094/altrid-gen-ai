@@ -17,8 +17,6 @@ We spend a lot of money on English education, but writing skills don't come easi
 Through the process of engineering sophisticated and clear prompts, Altrid has done what humans find difficult to do.
 Provide quick diagnosis and instructional direction based on high correction accuracy and objectivity, allowing students to quickly check their writing skills, By generating fresh, new, high-quality learning content, learners receive new learning content and missions every day to keep them learning to write.
 
-Translated with www.DeepL.com/Translator (free version)
-
 ## How to use?
 
 ### STEP 1
