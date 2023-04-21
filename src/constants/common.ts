@@ -2,6 +2,7 @@ export const ROUTE_LIST = {
   ai: '/',
   coach: '/coach',
   error: '/error',
+  dashboard: '/dashboard',
 };
 
 export const CHECK_MY_WRITING_OPTIONS = {

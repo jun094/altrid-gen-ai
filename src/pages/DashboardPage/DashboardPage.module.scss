@@ -1,0 +1,373 @@
+@import '../../styles/utils.scss';
+
+.container {
+  background-color: #f2f2f7;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  margin: -14px;
+}
+
+.cardSection {
+  display: flex;
+}
+
+.cardCluster {
+  margin: 14px;
+
+  &_fullWidth {
+    width: 100%;
+  }
+}
+
+.cardSeparator {
+  margin-top: 28px;
+}
+
+.cardMenuButton {
+  float: right;
+  margin-top: 3px;
+}
+
+.cardHeading {
+  color: var(--textColor);
+
+  &_lg {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-top: 12px;
+  }
+
+  &_md {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+  }
+
+  &_sm {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.cardAvatar {
+  background-image: url('/styles/assets/avatar-dummy.png');
+  background-size: cover;
+  background-color: #ffef9b;
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+}
+
+.cardParagraph {
+  color: rgba($color: #000000, $alpha: 0.4);
+}
+
+.personalCardHeader {
+  margin-top: 12px;
+}
+
+.personalCardScores {
+  display: flex;
+  margin-top: 20px;
+}
+
+.personalCardScoresItem {
+  color: var(--primaryLight);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+
+  & + & {
+    margin-left: 46px;
+  }
+}
+
+.personalCardBottomActions {
+  margin-top: 46px;
+}
+
+.englishWritingCardHeader {
+  p {
+    margin-top: 8px;
+  }
+}
+
+.englishWritingCardGraphSection {
+  margin-top: 20px;
+}
+
+.progressBar {
+  & + & {
+    margin-top: 24px;
+  }
+}
+
+.progressBarHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressBarTitle {
+  color: var(--textDefault);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.progressBarPercentage {
+  &_purple {
+    color: var(--primaryLight);
+  }
+
+  &_yellow {
+    color: #ffaa05;
+  }
+
+  &_blue {
+    color: #45a0ff;
+  }
+
+  &_cyan {
+    color: #4bd2db;
+  }
+}
+
+.progressBarBackground {
+  border-radius: 99px;
+  margin-top: 6px;
+  height: 8px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &_purple {
+    background-color: #ecdcff;
+  }
+
+  &_yellow {
+    background-color: #ffebc5;
+  }
+
+  &_blue {
+    background-color: #d2e8ff;
+  }
+
+  &_cyan {
+    background-color: #b4f2f6;
+  }
+}
+
+.progressBarGauge {
+  border-radius: 99px;
+  height: 8px;
+  position: absolute;
+
+  &_purple {
+    background-color: var(--primaryLight);
+  }
+
+  &_yellow {
+    background-color: #ffaa05;
+  }
+
+  &_blue {
+    background-color: #45a0ff;
+  }
+
+  &_cyan {
+    background-color: #4bd2db;
+  }
+}
+
+.myGrowthCardDateAction {
+  align-items: center;
+  color: #d0d1d2;
+  display: flex;
+  float: right;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.myGrowthCardDateActionText {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.myGrowthCardGraphSection {
+  margin-top: 16px;
+  overflow-x: auto;
+
+  & svg {
+    width: 100%;
+  }
+}
+
+.myGrowthCardDatePicker {
+  align-items: center;
+  border: 1px solid #ece9f1;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  margin-left: 8px;
+  padding: 4px 8px 4px 10px;
+
+  & svg {
+    margin-left: 10px;
+  }
+}
+
+.writingRevisedCardListSection {
+  margin-top: 16px;
+}
+
+.writingRevisedItem {
+  align-items: center;
+  display: flex;
+  color: var(--netural7);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+
+  & svg {
+    margin-right: 8px;
+  }
+
+  & + & {
+    margin-top: 12px;
+  }
+}
+
+.writingRevisedItemDateString {
+  align-self: flex-end;
+  color: var(--darkGray);
+  font-size: 12px;
+  line-height: 16px;
+  margin-left: 8px;
+}
+
+.mainCardItemSection {
+  margin-top: 28px;
+}
+
+.mainCardItem {
+  align-items: center;
+  background-color: var(--lightGray);
+  border-radius: 12px;
+  cursor: not-allowed;
+  display: flex;
+  margin-top: 20px;
+  padding: 20px 24px 20px 20px;
+  position: relative;
+
+  &_isActive {
+    border: 1px solid #e4e4ef;
+    background-color: #f4f4fe;
+    box-shadow: 0px 40px 30px rgba(114, 111, 148, 0.3);
+    cursor: pointer;
+    z-index: 1;
+  }
+}
+
+.mainCardItemImage {
+  width: 100px;
+  height: 100px;
+}
+
+.mainCardItemTextContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.mainCardItemTitle {
+  color: var(--textDefault);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+
+  &_isActive {
+    color: var(--primaryKey);
+  }
+}
+
+.mainCardItemDescription {
+  color: var(--textDefault);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  opacity: 0.6;
+  margin-top: 6px;
+  width: calc(100% - 32px);
+}
+
+.mainCardItemBottomText {
+  color: var(--primaryLight);
+  float: right;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  margin-top: 8px;
+  opacity: 0.6;
+
+  &_isActive {
+    color: var(--primaryKey);
+    opacity: 1;
+  }
+}
+
+.mainCardItemBottomButton {
+  align-items: center;
+  background: linear-gradient(88.37deg, #8142ef -3.68%, #b566f2 103.37%);
+  border-radius: 50%;
+  display: flex;
+  float: right;
+  justify-content: center;
+  margin-top: -12px;
+  margin-left: 12px;
+  width: 40px;
+  height: 40px;
+}
+
+/* Mobile Device */
+@media (max-width: $breakpoint-mobile) {
+  .cardSection {
+    flex-direction: column;
+  }
+
+  .cardCluster {
+    &_fullWidth {
+      width: initial;
+    }
+  }
+
+  .mainCardItem {
+    align-items: flex-start;
+  }
+
+  .mainCardItemImage {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mainCardItemDescription {
+    width: 100%;
+  }
+
+  .mainCardItemBottom {
+    margin-top: 4px;
+  }
+
+  .mainCardItemBottomButton {
+    width: 32px;
+    height: 32px;
+    margin-top: -3px;
+  }
+}
