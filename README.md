@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+<div align="center">
+  <a href="https://altridai.com">
+    <img src="https://altrid-gen-ai.vercel.app/logo.png" height="71" alt="altrid logo" />
+  </a>
+  <br />
+  <a href="https://altridai.com">
+    <p align="center">ALTRID-GPT | Create the writing you want</p>
+  </a>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+## What's Altrid-GPT
 
-In the project directory, you can run:
+We spend a lot of money on English education, but writing skills don't come easily, and with the advent of the GPT, it's time for a new way to learn how to express yourself in writing, a task that can be challenging even for native English speakers.
 
-### `npm start`
+Through the process of engineering sophisticated and clear prompts, Altrid has done what humans find difficult to do.
+Provide quick diagnosis and instructional direction based on high correction accuracy and objectivity, allowing students to quickly check their writing skills, By generating fresh, new, high-quality learning content, learners receive new learning content and missions every day to keep them learning to write.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to use?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### STEP 1
 
-### `npm test`
+>It could be anything from writing assignments from your history class, an e-mail for your teacher asking something particular with formal and polite tone.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Get the writing ready in eletrical form of document! Or, you can also start typing right away!
 
-### `npm run build`
+### STEP 2
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Simply copy and paste it!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### STEP 3
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Last but not least! Click the submit button and let your AI writing coach to do the work!
 
-### `npm run eject`
+## Contributors
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/jun094"><img src="https://avatars.githubusercontent.com/u/42564107?v=4" width="100px;" alt=""/><br /><sub><b>HolyMoly Jun</b></sub></a><br /><a href="https://github.com/jun094/altrid-gen-ai/commits?author=jun094" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Sain-Tech"><img src="https://avatars.githubusercontent.com/u/5365310?v=4" width="100px;" alt=""/><br /><sub><b>Sain Choi</b></sub></a><br /><a href="https://github.com/jun094/altrid-gen-ai/commits?author=Sain-Tech" title="Code">💻</a></td>
+  </tr>
+</table>
