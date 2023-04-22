@@ -19,7 +19,14 @@ const Navigation = () => {
   const location = useLocation();
 
   const handleQuestion = () => {
-    setIsShowHowTo(true);
+    switch (location?.pathname) {
+      case ROUTE_LIST.dashboard:
+        window.open('https://altrid.site', '_blank', 'noreferrer');
+        break;
+      default:
+        setIsShowHowTo(true);
+        break;
+    }
   };
   const closeCheckMyWritingHowToModal = () => setIsShowHowTo(false);
   const handleInsertText = () => {
@@ -37,7 +44,7 @@ const Navigation = () => {
       />
 
       <nav className={styles.container}>
-        <a href="/" className={styles.logoLink}>
+        <a href="/dashboard" className={styles.logoLink}>
           <img src="/logo.png" className={styles.logo} />
           <img src="/logo-text.png" className={styles.logoText} />
         </a>
