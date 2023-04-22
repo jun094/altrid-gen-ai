@@ -105,25 +105,25 @@ export default function DashboardPage() {
                 <div className={styles.mainCardItemSection}>
                   <MainCardItem
                     link="/"
-                    title="Writing Correction and Coaching"
+                    title="AI-generated Writing Revision and Coaching"
                     image={WritingImage}
-                    description="In addition to checking the grammar of the written composition, corrections are made according to the purpose, style, and tone."
+                    description="In addition to correcting the basic grammar and spelling in your writing, a newly revised version of writing will be recommended according to the specific purpose, style, and tone of your tasks related to various fields."
                     isActive
                   />
                   <MainCardItem
-                    title="Sentence Making Training"
+                    title="Grow Sentence Building Skills"
                     image={SentenceImage}
-                    description="Understand the structure of sentence writing, and provide in-depth sentence writing training and corrections."
+                    description="To advance the writing skills, understanding the fundamental structure and purpose of writing sentences comes first. Advance writing skills by experiencing AI-based in-depth sentence writing lessons to boost your writing skills."
                   />
                   <MainCardItem
-                    title="Write a Topic Essay"
+                    title="Learn Composing Advanced Essays"
                     image={EssayImage}
-                    description="Through subject-specific essay training, students practice English writing suitable for the purpose."
+                    description="Depending on the use of writing, learn how to write better essays through subject-specific essay training courses. You will be able to develop the overall writing skills suitable for the purpose, style, and tone."
                   />
                   <MainCardItem
-                    title="Combining Suggested Words"
+                    title="Practice Daily Vocabulary Words"
                     image={WordImage}
-                    description="Memorize today's recommended English words, and compose new sentences by combining words."
+                    description="Not only expand the depth and range of vocabulary skills but also advance them by creating sentences using the daily recommended words every day."
                   />
                 </div>
               </Card>
