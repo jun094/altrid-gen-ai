@@ -181,14 +181,16 @@ export default function DashboardPage() {
             </div>
             <div className={cn(styles.cardCluster, styles.cardCluster_fullWidth)}>
               <Card fullWidth>
-                <div className={styles.myGrowthCardDateAction}>
-                  <div className={styles.myGrowthCardDateActionText}>Monthly activity history</div>
-                  <div className={styles.myGrowthCardDatePicker}>
-                    May 2023
-                    <MyGrowthCardCalendarIcon />
+                <div className={styles.myGrowthCardHeader}>
+                  <div className={cn(styles.cardHeading, styles.cardHeading_sm)}>My Growth</div>
+                  <div className={styles.myGrowthCardDateAction}>
+                    <div className={styles.myGrowthCardDateActionText}>Monthly activity history</div>
+                    <div className={styles.myGrowthCardDatePicker}>
+                      May 2023
+                      <MyGrowthCardCalendarIcon />
+                    </div>
                   </div>
                 </div>
-                <div className={cn(styles.cardHeading, styles.cardHeading_sm)}>My Growth</div>
                 <div className={styles.myGrowthCardGraphSection}>
                   <MyGrowthGraphDummy />
                 </div>

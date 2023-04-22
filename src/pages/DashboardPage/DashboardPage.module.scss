@@ -184,11 +184,17 @@
   }
 }
 
+.myGrowthCardHeader {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -6px;
+}
+
 .myGrowthCardDateAction {
   align-items: center;
   color: #d0d1d2;
   display: flex;
-  float: right;
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
@@ -201,7 +207,7 @@
 }
 
 .myGrowthCardGraphSection {
-  margin-top: 16px;
+  margin-top: 14px;
   overflow-x: auto;
 
   & svg {
@@ -373,6 +379,10 @@
     width: 32px;
     height: 32px;
     margin-top: -3px;
+  }
+
+  .myGrowthCardDateActionText {
+    display: none;
   }
 
   .cardMorePadding {
