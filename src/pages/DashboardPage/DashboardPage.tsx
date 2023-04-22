@@ -24,7 +24,13 @@ const CardMenuButton = () => {
   return <CardDropdownIcon className={styles.cardMenuButton} />;
 };
 
-const ProgressBar = ({ color, title, percentage }) => {
+type ProgressBarType = {
+  color?: string;
+  title?: string;
+  percentage?: number;
+};
+
+const ProgressBar = ({ color = 'purple', title, percentage = 0 }: ProgressBarType) => {
   return (
     <div className={styles.progressBar}>
       <div className={styles.progressBarHeader}>
@@ -41,7 +47,12 @@ const ProgressBar = ({ color, title, percentage }) => {
   );
 };
 
-const WritingRevisedItem = ({ title, dateString }) => {
+type WritingRevisedItem = {
+  title?: string;
+  dateString?: string;
+};
+
+const WritingRevisedItem = ({ title, dateString }: WritingRevisedItem) => {
   return (
     <div className={styles.writingRevisedItem}>
       <WritingRevisedCardItemIcon />
@@ -51,7 +62,15 @@ const WritingRevisedItem = ({ title, dateString }) => {
   );
 };
 
-const MainCardItem = ({ title, description, image, isActive, link }) => {
+type MainCardItemProps = {
+  title?: string;
+  description?: string;
+  image?: string;
+  isActive?: boolean;
+  link?: string;
+};
+
+const MainCardItem = ({ title, description, image, isActive = false, link }: MainCardItemProps) => {
   return (
     <a href={link} className={cn(styles.mainCardItem, isActive ? styles.mainCardItem_isActive : null)}>
       <img className={styles.mainCardItemImage} src={image} />
