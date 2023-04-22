@@ -129,7 +129,7 @@ export default function DashboardPage() {
               </Card>
             </div>
             <div className={styles.cardCluster}>
-              <Card>
+              <Card className={styles.cardMorePadding}>
                 <CardMenuButton />
                 <CardAvatar />
                 <div className={styles.personalCardHeader}>
@@ -150,7 +150,7 @@ export default function DashboardPage() {
                   <PersonalCardDummies />
                 </div>
               </Card>
-              <Card className={styles.cardSeparator}>
+              <Card className={cn(styles.cardSeparator, styles.cardMorePadding)}>
                 <CardMenuButton />
                 <div className={styles.englishWritingCardHeader}>
                   <div className={cn(styles.cardHeading, styles.cardHeading_sm)}>English Writing</div>

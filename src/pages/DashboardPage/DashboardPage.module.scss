@@ -336,8 +336,12 @@
   height: 40px;
 }
 
+.cardMorePadding {
+  padding: 46px 28px;
+}
+
 /* Mobile Device */
-@media (max-width: $breakpoint-mobile) {
+@media (max-width: $breakpoint-mobile-dashboard) {
   .cardSection {
     flex-direction: column;
   }
@@ -369,5 +373,10 @@
     width: 32px;
     height: 32px;
     margin-top: -3px;
+  }
+
+  .cardMorePadding {
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 }
