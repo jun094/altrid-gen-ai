@@ -2,6 +2,8 @@ import cn from 'classnames';
 import Card from 'components/Card';
 import Navigation from 'components/Navigation';
 import PageWrapper from 'components/PageWrapper';
+import { ROUTE_LIST } from 'constants/common';
+
 import { ReactComponent as CardDropdownIcon } from 'styles/assets/card-dropdown-icon.svg';
 import { ReactComponent as PersonalCardDummies } from 'styles/assets/personal-card-dummies.svg';
 import { ReactComponent as MyGrowthGraphDummy } from 'styles/assets/my-growth-graph-dummy.svg';
@@ -104,7 +106,7 @@ export default function DashboardPage() {
                 <div className={cn(styles.cardHeading, styles.cardHeading_lg)}>English Writing Training</div>
                 <div className={styles.mainCardItemSection}>
                   <MainCardItem
-                    link="/"
+                    link={ROUTE_LIST.ai}
                     title="AI-generated Writing Revision and Coaching"
                     image={WritingImage}
                     description="In addition to correcting the basic grammar and spelling in your writing, a newly revised version of writing will be recommended according to the specific purpose, style, and tone of your tasks related to various fields."
