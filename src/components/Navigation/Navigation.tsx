@@ -6,6 +6,7 @@ import CheckMyWritingHowToModal from 'components/CheckMyWritingHowToModal';
 
 import { ReactComponent as QuestionIcon } from 'styles/assets/question.svg';
 import { ReactComponent as InsertTextIcon } from 'styles/assets/insert-text.svg';
+import { ReactComponent as GithubIcon } from 'styles/assets/github-icon.svg';
 
 import CheckMyWritingContext from 'contexts/CheckMyWritingContext';
 import { SAMPLE_TEXT } from 'constants/sampleText';
@@ -62,7 +63,13 @@ const Navigation = () => {
             </li>
           )}
 
-          <li className={styles.question} onClick={handleQuestion}>
+          <li
+            className={styles.icon}
+            onClick={() => window.open('https://github.com/jun094/altrid-gen-ai', '_blank', 'noreferrer')}
+          >
+            <GithubIcon />
+          </li>
+          <li className={styles.icon} onClick={handleQuestion}>
             <QuestionIcon />
           </li>
         </ul>
