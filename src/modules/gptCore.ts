@@ -3,7 +3,6 @@ import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from 'openai';
 import { CustomError } from './CustomError';
 import generateGPTPrompt, { generateGPTPromptOptionsType } from './gptTemplate';
 
-console.log(process.env)
 const openAIConfig = new Configuration({
   apiKey: process.env.REACT_APP_OPEN_AI_KEY,
 });
