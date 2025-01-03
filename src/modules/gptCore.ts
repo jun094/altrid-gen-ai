@@ -3,6 +3,7 @@ import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from 'openai';
 import { CustomError } from './CustomError';
 import generateGPTPrompt, { generateGPTPromptOptionsType } from './gptTemplate';
 
+console.log(process.env)
 const openAIConfig = new Configuration({
   apiKey: process.env.REACT_APP_OPEN_AI_KEY,
 });
@@ -21,7 +22,7 @@ export type checkMyWritingType = {
 
 const coreModule = async ({ messageStream }: openAIMessage) =>
   openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4o-mini',
     temperature: 1,
     n: 1,
     // top_p: 0.2,
