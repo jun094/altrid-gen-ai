@@ -1,6 +1,6 @@
 {
   "name": "altrid-gpt",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "private": true,
   "dependencies": {
     "@grammarly/editor-sdk-react": "^2.3.15",
@@ -24,8 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "standard-version": "standard-version",
-    "release:finish": "branch=$(git rev-parse --abbrev-ref HEAD | cut -d'/' -f2); git pull origin release/${branch} && git fetch && git pull origin master && npm run standard-version -- --release-as minor && git flow release finish -Fpn ${branch} && git push --tags",
-		"hotfix:finish": "branch=$(git rev-parse --abbrev-ref HEAD | cut -d'/' -f2); git pull origin hotfix/${branch} && git fetch && git pull origin master && npm run standard-version -- --release-as patch && git flow hotfix finish -Fpn ${branch} && git push --tags"
+    "release:finish": "branch=$(git rev-parse --abbrev-ref HEAD | cut -d'/' -f2); git pull origin release/${branch} && git fetch && git pull origin main && npm run standard-version -- --release-as minor && git flow release finish -Fpn ${branch} && git push --tags",
+    "hotfix:finish": "branch=$(git rev-parse --abbrev-ref HEAD | cut -d'/' -f2); git pull origin hotfix/${branch} && git fetch && git pull origin main && npm run standard-version -- --release-as patch && git flow hotfix finish -Fpn ${branch} && git push --tags"
   },
   "eslintConfig": {
     "extends": [
