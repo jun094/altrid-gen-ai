@@ -21,7 +21,7 @@ export type checkMyWritingType = {
 
 const coreModule = async ({ messageStream }: openAIMessage) =>
   openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4o-mini',
     temperature: 1,
     n: 1,
     // top_p: 0.2,
