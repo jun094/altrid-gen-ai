@@ -38,5 +38,5 @@ jobs:
 
       - name: Run slack workflow
         run: |
-          POST_DATA='{"releaseBranch": "release/$RELEASE_BRANCH_POSTFIX"}'
+          POST_DATA='{"releaseBranch": "release/'"$RELEASE_BRANCH_POSTFIX"'"}'
           curl -X POST -H 'Content-type: application/json' --data "${POST_DATA}" "$SLACK_WORKFLOW_WEBHOOK_URL"
