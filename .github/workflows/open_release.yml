@@ -1,0 +1,33 @@
+name: Open release branch
+
+on:
+  workflow_dispatch:
+
+env:
+  TIMEZONE: "Asia/Seoul"
+
+jobs:
+  open-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set release branch postfix
+        run: |
+          KST_DATE=$(TZ=$TIMEZONE date '+%Y%m%d')
+          SEQUENCE_NUMBER=$((GITHUB_RUN_NUMBER))
+          echo "RELEASE_BRANCH_POSTFIX=${KST_DATE}-${SEQUENCE_NUMBER}" >> $GITHUB_ENV
+
+      - name: Current release branch
+        run: echo "Release branch is release/$RELEASE_BRANCH_POSTFIX"
+        
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Create branch
+        run: git checkout -b release/$RELEASE_BRANCH_POSTFIX develop
+
+      - name: Set git user
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
